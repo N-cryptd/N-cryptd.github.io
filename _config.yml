@@ -27,5 +27,7 @@ defaults:
 
 exclude:
   - README.md
+  - AGENTS.md
+  - PLANNING_STATE.md
   - Gemfile
   - Gemfile.lock
