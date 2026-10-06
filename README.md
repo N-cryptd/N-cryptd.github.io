@@ -1,6 +1,6 @@
 # n-cryptd.github.io
 
-Personal website of Nayib Goushesh — static Jekyll site, hosted free on **GitHub Pages** at <https://n-cryptd.github.io>.
+Personal website of Nayib Martin Goushesh — static Jekyll site, hosted free on **GitHub Pages** at <https://n-cryptd.github.io>.
 
 No build step, no CI, no JavaScript, no dependencies to update. GitHub builds the site natively (Jekyll) every time something is pushed to `main`.
 
