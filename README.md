@@ -42,7 +42,7 @@ docker run --rm -p 4000:4000 -v "$PWD:/srv/jekyll" jekyll/jekyll jekyll serve
 
 ## Repo history note
 
-This replaces two earlier attempts:
+This site replaces two earlier attempts:
 
-- `personalweb` — Next.js 16 full-stack app (Prisma/Postgres/Stripe/Redis). Far too heavy for a personal site and impossible to host on GitHub Pages. Kept private as reference.
-- `N-cryptd-blog` — Jekyll `minima` starter with one test post. Its purpose is fulfilled by this repo.
+- `personalweb` — Next.js 16 full-stack app (Prisma/Postgres/Stripe/Redis). Overkill for a personal site; its ERP scaffolding lives on as the seed of a separate AI-agents consultancy platform.
+- `N-cryptd-blog` — Jekyll `minima` starter with one test post. Archived; its purpose is fulfilled by this repo.
