@@ -1,7 +1,7 @@
 # PLANNING_STATE — n-cryptd.github.io
 
 > **Ground truth** together with the filesystem and GitHub. Update after every state change.
-> Operating manual: `AGENTS.md`. Snapshot date: **2026-10-06** (autonomous-dev scaffolding day; this repo gets its OWN nightly cron, created separately by the user — suggested 4 AM so it doesn't overlap personalweb's 3 AM cron, with DeepSeek Harness (`dsh`) as the mandated agent harness).
+> Operating manual: `AGENTS.md`. Snapshot date: **2026-10-06** (autonomous-dev scaffolding day; this repo gets its OWN nightly cron, created separately by the user — suggested 4 AM so it doesn't overlap personalweb's 3 AM cron; plain dev loop, NO agent harness — DeepSeek Harness is reserved for personalweb's Phase 3 agent layer only).
 
 ## Last Updated
 2026-10-06 (initial): Site went live earlier today (built from personalweb's mined content, Jekyll on legacy Pages build). Design flare added (aurora hero, flight path, scroll reveals — commit d5ee8ba). Name corrected to Nayib Martin Goushesh. Autonomous-dev scaffolding created (AGENTS.md + this file); seed issues #1–#5 opened; daily 4 AM cron scheduled. No code changes in this scaffolding pass.
@@ -31,4 +31,4 @@ Make <https://n-cryptd.github.io> a genuinely good landing page for Nayib Martin
 - Factual honesty rule applies to everything (AGENTS.md → Conventions).
 
 ## Run Journal (append one line per nightly run)
-- 2026-10-06 (scaffold session): AGENTS.md + PLANNING_STATE.md written, issues #1–#5 opened. Scheduling: a separate cron for this repo is created BY THE USER (platform allows one scheduled task per session) — suggested definition handed over: daily 4 AM, DeepSeek Harness (`dsh`) mandated as the agent harness, same structure as personalweb's cron. Until that cron exists, no autonomous runs happen here. No code changes.
+- 2026-10-06 (scaffold session): AGENTS.md + PLANNING_STATE.md written, issues #1–#5 opened. Scheduling: a separate cron for this repo is created BY THE USER (platform allows one scheduled task per session) — handover definition delivered: daily 4 AM, plain dev loop (the session does the work directly; no agent harness — dsh is reserved for personalweb's Phase 3). Until that cron exists, no autonomous runs happen here. No code changes.
