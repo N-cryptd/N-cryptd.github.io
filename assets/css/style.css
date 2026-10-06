@@ -485,4 +485,268 @@ a:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn, .card { transition: none; }
+  .aurora span, .flight .plane, .hero-badge .dot, .timeline li::before { animation: none !important; }
+  .flight { display: none; }
+}
+
+/* ============================================================
+   Design flare — aurora hero, flight path, scroll reveals,
+   micro-interactions. Pure CSS, no JavaScript.
+   ============================================================ */
+
+::selection { background: var(--accent); color: #fff; }
+
+html { scrollbar-color: var(--border) transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Nav: brand dot + gradient underline on hover ---------- */
+
+.brand::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 9px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.nav-links a:not(.nav-cta) {
+  position: relative;
+  padding: 4px 0;
+}
+.nav-links a:not(.nav-cta)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: right 0.25s ease;
+}
+.nav-links a:not(.nav-cta):hover::after { right: 0; }
+
+/* ---------- Hero: aurora blobs, gradient name, flight path ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.aurora {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.aurora span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.55;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+.aurora span:nth-child(1) {
+  width: 480px; height: 480px;
+  left: 6%; top: -160px;
+  background: radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--accent) 42%, transparent), transparent 70%);
+}
+.aurora span:nth-child(2) {
+  width: 430px; height: 430px;
+  right: 4%; top: -80px;
+  background: radial-gradient(circle at 60% 40%, color-mix(in srgb, var(--accent-2) 35%, transparent), transparent 70%);
+  animation-delay: -6s;
+  animation-duration: 22s;
+}
+.aurora span:nth-child(3) {
+  width: 400px; height: 400px;
+  left: 42%; bottom: -200px;
+  background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.20), transparent 70%);
+  animation-delay: -12s;
+  animation-duration: 26s;
+}
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(48px, 34px, 0) scale(1.16); }
+}
+
+@media (prefers-color-scheme: light) {
+  .aurora span { opacity: 0.38; }
+}
+
+.hero h1 {
+  background: linear-gradient(115deg, var(--text) 45%, var(--accent) 98%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+}
+
+.hero-badge .dot { animation: pulse 2.4s ease-out infinite; }
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.45); }
+  70%  { box-shadow: 0 0 0 10px rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+.btn-primary {
+  background-size: 150% 100%;
+  background-position: 0% 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-position 0.4s ease;
+}
+.btn-primary:hover {
+  background-position: 90% 0;
+  box-shadow: 0 10px 26px rgba(139, 92, 246, 0.5);
+}
+
+.flight {
+  position: absolute;
+  top: 48px;
+  right: 3%;
+  width: 560px;
+  height: 240px;
+  pointer-events: none;
+  color: color-mix(in srgb, var(--muted) 60%, transparent);
+}
+.flight .trail {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.flight .plane {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  offset-path: path("M0,190 C140,40 320,20 540,90");
+  offset-rotate: auto;
+  filter: drop-shadow(0 4px 10px color-mix(in srgb, var(--accent) 45%, transparent));
+  animation: fly 12s linear infinite;
+}
+@keyframes fly {
+  0%   { offset-distance: 0%;   opacity: 0; }
+  10%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+@media (max-width: 1000px) {
+  .flight { display: none; }
+}
+
+/* ---------- Cards: gradient top edge + glow on hover ---------- */
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.card:hover::before { transform: scaleX(1); }
+.card:hover {
+  box-shadow: var(--shadow);
+}
+.chip {
+  background: linear-gradient(135deg, var(--accent-soft), transparent);
+}
+
+/* ---------- Timeline: gradient line + soft pulse ---------- */
+
+.timeline li:not(:last-child) {
+  border-image: linear-gradient(180deg, var(--accent), var(--accent-2)) 1;
+}
+.timeline li::before { animation: glowdot 3.2s ease-in-out infinite; }
+@keyframes glowdot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.30); }
+  50%      { box-shadow: 0 0 0 7px rgba(139, 92, 246, 0); }
+}
+
+/* ---------- Section headings + footer + post accents ---------- */
+
+.section-head .kicker { display: inline-flex; align-items: center; gap: 8px; }
+.section-head .kicker::before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.site-footer {
+  border-top-color: transparent;
+  position: relative;
+}
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
+  opacity: 0.7;
+}
+
+.post-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin-top: 14px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+/* ---------- Scroll-driven reveals (progressive enhancement) ---------- */
+
+@supports (animation-timeline: view()) {
+  .section-head, .card, .timeline li {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 42%;
+  }
+  .bar i {
+    transform-origin: left;
+    animation: grow linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 55%;
+  }
+  @keyframes rise {
+    from { opacity: 0; translate: 0 26px; }
+    to   { opacity: 1; translate: 0 0; }
+  }
+  @keyframes grow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .section-head, .card, .timeline li, .bar i { animation: none !important; }
+  }
 }
