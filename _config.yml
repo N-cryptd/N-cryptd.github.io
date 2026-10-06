@@ -1,0 +1,31 @@
+# Site settings — GitHub Pages builds this with its native Jekyll integration.
+# No local tooling required: edit markdown / _data/site.yml, push, done.
+
+title: Nayib Goushesh
+email: nayib3131@gmail.com
+description: >-
+  Aerospace Engineer & AI Specialist in Barcelona — air navigation, U-space,
+  deep reinforcement learning, and applied machine learning.
+url: "https://n-cryptd.github.io"
+lang: en
+permalink: /blog/:year/:title/
+
+# Both plugins are whitelisted on GitHub Pages — no bundler needed.
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+markdown: kramdown
+highlighter: rouge
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

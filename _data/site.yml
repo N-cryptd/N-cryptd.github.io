@@ -1,0 +1,147 @@
+# ============================================================
+#  ALL site content lives in this one file.
+#  Edit here, commit, push — GitHub Pages rebuilds automatically.
+# ============================================================
+
+hero:
+  name: Nayib Goushesh
+  title: Aerospace Engineer & AI Specialist
+  tagline: Aerospace × AI
+  location: Barcelona, Spain
+  availability: Available for projects
+  about: >-
+    Aerospace Systems Engineer with a passion for STEM. My interests span air
+    navigation, communications, and machine learning — from analyzing departure
+    trajectories at Barcelona-El Prat to training deep reinforcement learning
+    agents for autonomous vertiport operations. In my free time I enjoy
+    programming any crazy idea related to these topics, and I'm always up for
+    collaborating on something new.
+  cv: /assets/Nayib_Goushesh_CV.pdf
+
+socials:
+  email: nayib3131@gmail.com
+  linkedin: https://www.linkedin.com/in/nayib-m-baa3bb201/
+  github: https://github.com/N-cryptd
+  medium: https://medium.com/@Nayib
+
+services:
+  - title: Aerospace Consultancy
+    description: >-
+      Expert guidance on air traffic management, avionics systems, and U-space
+      applications for next-generation aviation.
+    highlights: [ATM Systems, Avionics, Drone Operations, U-space]
+    stats: 5+ projects
+  - title: Software Development
+    description: >-
+      Custom solutions with Python, C#, and modern frameworks for aerospace
+      and data applications.
+    highlights: [Python, C#, FastAPI, APIs]
+    stats: 15+ solutions
+  - title: AI & Deep Learning
+    description: >-
+      DRL frameworks, neural networks, and intelligent systems for complex
+      engineering challenges.
+    highlights: [DRL, PPO/DQN, Transformers, LLMs]
+    stats: 8+ models
+  - title: Data Analytics
+    description: >-
+      Transform raw data into actionable insights with statistical analysis
+      and predictive modeling.
+    highlights: [Analytics, Visualization, ML Models, Insights]
+    stats: 10+ analyses
+
+projects:
+  - title: Autonomous Vertiport Operations
+    subtitle: Bachelor Thesis · UPC
+    description: >-
+      Developed a Deep Reinforcement Learning framework for managing drone
+      traffic at urban vertiports using PPO algorithms and AirSim simulation.
+    technologies: [Deep RL, PPO, AirSim, FastAPI, Python, Gymnasium]
+    impact: Novel approach to urban air mobility
+    url: https://upcommons.upc.edu/entities/publication/e31a51bc-e585-42d9-9ad0-8211858666ba
+  - title: ATM Departure Trajectory Analysis
+    subtitle: University Project · UPC
+    description: >-
+      Comprehensive analysis of ATM departure trajectories at Barcelona-El Prat
+      Airport using advanced Python data processing.
+    technologies: [Python, Pandas, NumPy, Matplotlib, ATM Systems]
+    impact: Improved flight efficiency models
+  - title: Asterix Surveillance Decoder
+    subtitle: University Project · UPC
+    description: >-
+      Developed an Asterix surveillance data decoder using C# for real-time ATM
+      applications and ADS-B processing.
+    technologies: [C#, .NET, Asterix Protocol, ADS-B, Surveillance]
+    impact: Real-time data processing
+  - title: AI Content Pipeline
+    subtitle: Freelance · Automation
+    description: >-
+      Automated content creation system using local LLMs with LangChain for
+      efficient content generation workflows.
+    technologies: [Python, LangChain, GPT4All, Ollama, FastAPI]
+    impact: 80% time reduction
+
+experience:
+  - title: AOG Desk Purchasing Engineer
+    company: Vueling (via Eurofirms)
+    location: Barcelona
+    period: 2024 — Present
+    description: >-
+      Aircraft-on-ground logistics coordination and part sourcing for
+      operational excellence.
+    type: Full-time
+  - title: R&D Engineer
+    company: CRIDA
+    location: Remote
+    period: 2024
+    description: >-
+      Developed custom DRL frameworks for autonomous drone traffic management.
+    type: Contract
+  - title: Design Thinking Finalist
+    company: SEAT
+    location: Barcelona
+    period: 2024
+    description: Designed generative AI-based in-vehicle virtual assistant MVP.
+    type: Competition
+  - title: Freelance Developer
+    company: Independent
+    location: Remote
+    period: Ongoing
+    description: >-
+      ML/DL models, trading systems, and AI-powered agents for diverse clients.
+    type: Freelance
+
+education:
+  - degree: B.Sc. Aerospace Systems Engineering
+    field: Air Navigation
+    school: Polytechnic University of Catalonia
+    location: Barcelona, Spain
+    period: 2024
+    thesis: Towards Autonomous Vertiport Operations — A DRL Perspective
+    thesis_url: https://upcommons.upc.edu/entities/publication/e31a51bc-e585-42d9-9ad0-8211858666ba
+
+certifications:
+  - title: Design Thinking Finalist
+    issuer: SEAT S.A.
+    year: 2024
+  - title: B.Sc. Aerospace Systems
+    issuer: Polytechnic University of Catalonia
+    year: 2024
+  - title: Erasmus+ Exchange
+    issuer: European Union
+    year: 2023
+
+skills:
+  languages:
+    - { name: Python, level: 95 }
+    - { name: C#, level: 85 }
+    - { name: MATLAB, level: 80 }
+    - { name: SQL, level: 80 }
+    - { name: Git, level: 90 }
+  ml:
+    - { name: TensorFlow/Keras, level: 90 }
+    - { name: PyTorch, level: 85 }
+    - { name: Stable-Baselines3, level: 88 }
+    - { name: Scikit-learn, level: 90 }
+  aerospace: [ATM Systems, Avionics, DRL for UTM, U-space, Vertiport Ops, AirSim, GNSS/GPS, Radar Systems]
+  tools: [LangChain, GPT4All, Ollama, OpenAI, FastAPI, Pandas, NumPy, TensorBoard]

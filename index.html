@@ -1,0 +1,178 @@
+---
+layout: default
+---
+{% assign s = site.data.site %}
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <span class="hero-badge"><span class="dot"></span>{{ s.hero.availability }}</span>
+    <h1>{{ s.hero.name }}</h1>
+    <p class="title-line">{{ s.hero.title }}</p>
+    <p class="lede">{{ s.hero.about }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ '/#projects' | relative_url }}">View projects</a>
+      <a class="btn btn-ghost" href="{{ s.hero.cv | relative_url }}">Download CV</a>
+    </div>
+    <div class="hero-meta">
+      <span>📍 {{ s.hero.location }}</span>
+      <span>✈️ {{ s.hero.tagline }}</span>
+      <a href="{{ s.socials.linkedin }}">LinkedIn</a>
+      <a href="{{ s.socials.github }}">GitHub</a>
+      <a href="{{ s.socials.medium }}">Medium</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">About</p>
+      <h2>What I do</h2>
+    </div>
+    <div class="grid grid-2">
+      {% for svc in s.services %}
+      <div class="card">
+        <h3>{{ svc.title }}</h3>
+        <p>{{ svc.description }}</p>
+        <div class="chips">{% for h in svc.highlights %}<span class="chip">{{ h }}</span>{% endfor %}</div>
+        <p class="service-stats">{{ svc.stats }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Projects</p>
+      <h2>Selected work</h2>
+      <p>From DRL-driven vertiport scheduling to real-time surveillance decoding — a few things I've built and researched.</p>
+    </div>
+    <div class="grid grid-2">
+      {% for p in s.projects %}
+      <div class="card">
+        <h3>{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }} ↗</a>{% else %}{{ p.title }}{% endif %}</h3>
+        <p class="subtitle">{{ p.subtitle }}</p>
+        <p>{{ p.description }}</p>
+        <p class="impact">{{ p.impact }}</p>
+        <div class="chips">{% for t in p.technologies %}<span class="chip">{{ t }}</span>{% endfor %}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Experience</p>
+      <h2>Where I've worked</h2>
+    </div>
+    <ul class="timeline">
+      {% for e in s.experience %}
+      <li>
+        <p class="role">{{ e.title }}</p>
+        <p class="org">{{ e.company }} · {{ e.location }} · {{ e.period }}<span class="type">{{ e.type }}</span></p>
+        <p>{{ e.description }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<!-- Education & skills -->
+<section id="education" class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Education</p>
+      <h2>Background</h2>
+    </div>
+    <div class="grid grid-2">
+      {% for ed in s.education %}
+      <div class="card">
+        <h3>{{ ed.degree }}</h3>
+        <p class="subtitle">{{ ed.field }}</p>
+        <p>{{ ed.school }} · {{ ed.location }} · {{ ed.period }}</p>
+        <p class="impact">Thesis: {% if ed.thesis_url %}<a href="{{ ed.thesis_url }}" target="_blank" rel="noopener">{{ ed.thesis }} ↗</a>{% else %}{{ ed.thesis }}{% endif %}</p>
+      </div>
+      {% endfor %}
+      {% for c in s.certifications %}
+      <div class="card">
+        <h3>{{ c.title }}</h3>
+        <p class="subtitle">{{ c.year }}</p>
+        <p>{{ c.issuer }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="skill-groups">
+      <div class="grid grid-2" style="margin-top: 26px;">
+        <div>
+          <h3>Programming</h3>
+          {% for sk in s.skills.languages %}
+          <div class="skill-row">
+            <div class="name"><span>{{ sk.name }}</span><span>{{ sk.level }}%</span></div>
+            <div class="bar"><i style="width: {{ sk.level }}%"></i></div>
+          </div>
+          {% endfor %}
+          <h3>Machine Learning</h3>
+          {% for sk in s.skills.ml %}
+          <div class="skill-row">
+            <div class="name"><span>{{ sk.name }}</span><span>{{ sk.level }}%</span></div>
+            <div class="bar"><i style="width: {{ sk.level }}%"></i></div>
+          </div>
+          {% endfor %}
+        </div>
+        <div>
+          <h3>Aerospace</h3>
+          <div class="chips">{% for t in s.skills.aerospace %}<span class="chip">{{ t }}</span>{% endfor %}</div>
+          <h3>Tools</h3>
+          <div class="chips">{% for t in s.skills.tools %}<span class="chip">{{ t }}</span>{% endfor %}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Contact</p>
+      <h2>Get in touch</h2>
+      <p>Have a project in mind? Let's discuss how I can help bring your ideas to life.</p>
+    </div>
+    <div class="contact-actions">
+      <a class="btn btn-primary" href="{{ 'mailto:' | append: s.socials.email }}">Email me</a>
+      <a class="btn btn-ghost" href="{{ s.socials.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="{{ s.socials.github }}" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- Latest posts -->
+{% if site.posts.size > 0 %}
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Blog</p>
+      <h2>Latest posts</h2>
+    </div>
+    <ul class="post-list">
+      {% for post in site.posts limit:3 %}
+      <li>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%B %-d, %Y' }}</time>{% if post.tags %} · {% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}</p>
+        <p>{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <p style="margin-top: 18px;"><a href="{{ '/blog/' | relative_url }}">All posts →</a></p>
+  </div>
+</section>
+{% endif %}

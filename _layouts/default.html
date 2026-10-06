@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} — Aerospace Engineer &amp; AI Specialist{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description | strip_html | truncate: 160 }}{% else %}{{ site.description | strip_html }}{% endif %}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | truncate: 160 }}{% else %}{{ site.description | strip_html }}{% endif %}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="wrap nav" aria-label="Main">
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <div class="nav-links">
+        <a href="{{ '/#about' | relative_url }}">About</a>
+        <a href="{{ '/#projects' | relative_url }}">Projects</a>
+        <a href="{{ '/#experience' | relative_url }}">Experience</a>
+        <a href="{{ '/blog/' | relative_url }}">Blog</a>
+        <a class="nav-cta" href="{{ site.data.site.hero.cv | relative_url }}">CV ↓</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="site-main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="footer-name">{{ site.title }}</p>
+        <p class="footer-sub">Aerospace × AI · Barcelona, Spain</p>
+      </div>
+      <div class="footer-links">
+        <a href="{{ site.data.site.socials.linkedin }}">LinkedIn</a>
+        <a href="{{ site.data.site.socials.github }}">GitHub</a>
+        <a href="{{ site.data.site.socials.medium }}">Medium</a>
+        <a href="{{ 'mailto:' | append: site.data.site.socials.email }}">Email</a>
+        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      </div>
+      <p class="footer-copy">© {{ site.time | date: '%Y' }} {{ site.title }}</p>
+    </div>
+  </footer>
+</body>
+</html>
