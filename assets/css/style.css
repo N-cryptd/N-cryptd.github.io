@@ -291,6 +291,40 @@ a:hover { text-decoration: underline; }
   border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
+/* ---------- Private projects: reserved showcase ---------- */
+
+.private-head { margin: 46px 0 22px; }
+.private-head h3 {
+  font-size: 1.25rem;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+.kicker-private {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  margin: 0 0 4px;
+}
+.private-note { color: var(--muted); font-size: 0.88rem; margin: 0; }
+
+.card-private { border-style: dashed; }
+.card-private h3 { padding-right: 72px; }
+.tag-private {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px dashed color-mix(in srgb, var(--accent) 45%, var(--border));
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
 .service-stats {
   font-size: 0.8rem;
   color: var(--muted);

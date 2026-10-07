@@ -81,6 +81,45 @@ projects:
     technologies: [Python, LangChain, GPT4All, Ollama, FastAPI]
     impact: 80% time reduction
 
+# Reserved showcase of the most relevant private work (user decision
+# 2026-10-07): no links, high-level by design, descriptions derived from the
+# actual repos. Never add specifics beyond what is safe to make public.
+private_projects:
+  - title: Autonomous Vertiport Management — v3
+    subtitle: Private research · Third generation
+    description: >-
+      The production-grade continuation of my thesis work: coordinating
+      last-mile delivery drone traffic at urban vertiports with multi-agent
+      deep RL (MAPPO over graph neural networks) inside a layered control
+      architecture with formal safety shielding.
+    technologies: [MAPPO, GNNs, CBF Safety, MILP, Python]
+    impact: 10 months of research · third system generation
+  - title: ARES — Simulation Engine
+    subtitle: Private engineering project
+    description: >-
+      A deterministic, reproducible simulation workspace in Rust with a live
+      web UI — multi-rate scheduling, adaptive RK45 integration, ensemble
+      data assimilation, and epidemic, traffic, and heat-transfer models.
+    technologies: [Rust, React, RK45, EnKF, Parquet]
+    impact: Determinism and reproducibility first
+  - title: Aria — AOG Operations Agent
+    subtitle: Private · Aviation operations
+    description: >-
+      An autonomous agent layer with guardrailed reasoning, verification, and
+      delegation, driving a sourcing command center for aircraft-on-ground
+      parts operations.
+    technologies: [TypeScript, LLM Agents, Guardrails, Tool Use]
+    impact: Airline ops × autonomous agents
+  - title: TRADER — Trading Research Platform
+    subtitle: Private · Personal infrastructure
+    description: >-
+      A single-user, Docker-native research and execution stack: versioned
+      market-data lake, feature pipelines, and strategy validation gates
+      (deflated Sharpe, drawdown, turnover) before any paper-to-live
+      promotion.
+    technologies: [Python, Docker, DuckDB, Prefect, Dash]
+    impact: Validation gates before live capital
+
 experience:
   - title: AOG Desk Purchasing Engineer
     company: Vueling (via Eurofirms)

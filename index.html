@@ -78,6 +78,24 @@ layout: default
       </div>
       {% endfor %}
     </div>
+
+    <div class="private-head">
+      <p class="kicker-private">Private work</p>
+      <h3>Selected private projects</h3>
+      <p class="private-note">Closed-source by choice and kept at a high level on purpose — details available on request.</p>
+    </div>
+    <div class="grid grid-2">
+      {% for p in s.private_projects %}
+      <div class="card card-private">
+        <span class="tag-private">Private</span>
+        <h3>{{ p.title }}</h3>
+        <p class="subtitle">{{ p.subtitle }}</p>
+        <p>{{ p.description }}</p>
+        <p class="impact">{{ p.impact }}</p>
+        <div class="chips">{% for t in p.technologies %}<span class="chip">{{ t }}</span>{% endfor %}</div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
