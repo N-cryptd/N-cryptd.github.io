@@ -47,6 +47,7 @@ PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH" jekyll build --source . --desti
 
 ## Conventions
 - **Factual honesty (critical):** this is a real person's site. Never invent facts, metrics, testimonials, jobs, skills, or opinions. Project descriptions must derive from the actual repos (READMEs, code) — link only public repos. Anything requiring the user's voice or private info becomes a pending decision in PLANNING_STATE.md, never fabricated.
+- **Private work on the site (user decision 2026-10-07):** the most relevant private projects ARE showcased, but reserved — no links, no GitHub slugs, no internal specifics (issues, architecture dumps, client names); one-liners derive from the actual repos and stay high-level. Entries live in `private_projects:` in `_data/site.yml`; the template never emits links for them.
 - Blog posts: the agent may propose outlines/drafts as issues, but **publishing a post in the user's voice requires user approval** recorded in PLANNING_STATE.md — with the sole exception of technical/meta posts about the site itself (clearly factual).
 - Zero JavaScript by default. Achieve interactivity with CSS (scroll-driven animations behind `@supports`, `prefers-reduced-motion` honored). Any JS needs explicit user approval.
 - Keep the data-driven structure: content edits go in `_data/site.yml`, design in `style.css`, structure in `_layouts/` — don't hardcode content into HTML.
