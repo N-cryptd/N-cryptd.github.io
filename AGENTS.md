@@ -9,7 +9,7 @@ Working agreements, roadmap, and run journal: **`PLANNING_STATE.md` (ground trut
 - Stack: Jekyll (no gem theme; only `jekyll-feed` + `jekyll-sitemap` plugins — both whitelisted on GitHub Pages), one stylesheet (`assets/css/style.css`, dark-first + light via `prefers-color-scheme`), no JavaScript.
 - Pages deployment: **legacy Jekyll build** (`build_type=legacy`) — GitHub rebuilds on every push to main, ~1 min. Do NOT change the Pages build type or add Actions-based deployment.
 - ALL site content is data-driven from `_data/site.yml`; posts in `_posts/YYYY-MM-DD-slug.md`; layouts in `_layouts/`; styles in `assets/css/style.css` ("Design flare" section at the bottom: aurora hero, flight path, scroll-driven reveals).
-- No CI workflow exists yet — local build verification is mandatory before every push (see Role), and adding a build-check workflow is in-scope work (unlike deploy/backup workflows, which don't exist here).
+- CI: a "Build check" workflow exists (`.github/workflows/ci.yml`, added 2026-10-07) — runs `jekyll build` + a stdlib-only internal link checker (`.github/scripts/check_internal_links.py`) on push/PR. It never deploys. Local build verification is still mandatory before every push (see Role).
 - The user's full name is **Nayib Martin Goushesh** — never render the short form in display surfaces.
 
 ## Staleness Prevention (MANDATORY)
