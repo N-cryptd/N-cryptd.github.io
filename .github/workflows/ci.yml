@@ -1,0 +1,34 @@
+# Build check — runs the same Jekyll build the legacy Pages deploy runs,
+# plus an internal-link check, on every push to main and every PR.
+# This workflow never deploys anything; the Pages legacy build is unchanged.
+name: Build check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: jekyll build + internal link check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+
+      - name: Install Jekyll
+        run: gem install jekyll jekyll-feed jekyll-sitemap --no-document
+
+      - name: Build site
+        env:
+          JEKYLL_ENV: production
+        run: jekyll build --source . --destination _site
+
+      - name: Check internal links
+        run: python3 .github/scripts/check_internal_links.py --root _site --origin https://n-cryptd.github.io
