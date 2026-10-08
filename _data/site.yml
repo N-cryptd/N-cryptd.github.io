@@ -81,6 +81,47 @@ projects:
     technologies: [Python, LangChain, GPT4All, Ollama, FastAPI]
     impact: 80% time reduction
 
+# Public GitHub repositories, curated 2026-10-08 from the actual repos
+# (descriptions derived from each repo's README/metadata — nothing invented).
+# Forks of other people's projects are deliberately excluded: N-cryptd has
+# zero own commits in them, so showcasing them would misattribute work.
+open_projects:
+  - title: Math Channel
+    subtitle: Open source · Math education
+    description: >-
+      Production pipeline for a Manim-powered math channel: 54 scripted videos
+      across pre-university, undergraduate, and graduate playlists — Calculus
+      I–III, Linear Algebra, and more — with per-video planning, reusable
+      templates, and render tooling.
+    technologies: [Python, Manim, FFmpeg]
+    url: https://github.com/N-cryptd/math-channel
+  - title: Hermes — ARC-AGI-3 Agent
+    subtitle: Open source · Competition entry
+    description: >-
+      LLM-powered agent for the ARC-AGI-3 Kaggle competition: turns 64×64 grid
+      observations into objects and frame diffs, probes game mechanics
+      systematically, and drives structured GLM reasoning (via NVIDIA NIM)
+      through an explore–understand–plan–execute–adapt loop.
+    technologies: [Python, LLM Agents, Structured Reasoning, Kaggle]
+    url: https://github.com/N-cryptd/arc-agi-3-hermes
+  - title: SIERRA
+    subtitle: Open source · RL environment
+    description: >-
+      Survival Intelligence Environment for Resource Research and Adaptation —
+      a grid-based reinforcement-learning environment with multi-resource
+      management, day/night and weather cycles, threats, and crafting, plus a
+      training framework with metrics and visualization.
+    technologies: [Python, Deep RL, Simulation]
+    url: https://github.com/N-cryptd/SIERRA
+  - title: CryptoCNN
+    subtitle: Open source · Experimental
+    description: >-
+      Exploratory study on convolutional networks for trading: CNNs classify
+      short-term BUY/SELL signals for Binance-listed cryptocurrencies from
+      candlestick-chart images enhanced with technical indicators.
+    technologies: [Python, CNNs, Computer Vision, Trading]
+    url: https://github.com/N-cryptd/CryptoCNN
+
 # Reserved showcase of the most relevant private work (user decision
 # 2026-10-07): no links, high-level by design, descriptions derived from the
 # actual repos. Never add specifics beyond what is safe to make public.
