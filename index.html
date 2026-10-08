@@ -79,10 +79,10 @@ layout: default
       {% endfor %}
     </div>
 
-    <div class="private-head">
-      <p class="kicker-private">Private work</p>
+    <div class="sub-head">
+      <p class="kicker-sub">Private work</p>
       <h3>Selected private projects</h3>
-      <p class="private-note">Closed-source by choice and kept at a high level on purpose — details available on request.</p>
+      <p class="sub-note">Closed-source by choice and kept at a high level on purpose — details available on request.</p>
     </div>
     <div class="grid grid-2">
       {% for p in s.private_projects %}
@@ -96,6 +96,7 @@ layout: default
       </div>
       {% endfor %}
     </div>
+    <p style="margin-top: 26px;"><a href="{{ '/projects/' | relative_url }}">All projects →</a></p>
   </div>
 </section>
 

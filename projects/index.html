@@ -1,0 +1,69 @@
+---
+layout: default
+title: Projects
+description: The full project index — featured engineering and research work, open-source repositories, and selected private projects.
+---
+{% assign s = site.data.site %}
+
+<div class="wrap" style="padding-top: 48px; padding-bottom: 48px;">
+  <div class="section-head">
+    <p class="kicker">Projects</p>
+    <h1 style="font-size: clamp(1.8rem, 4.5vw, 2.5rem); margin: 0 0 6px;">All projects</h1>
+    <p>Featured engineering and research work, open-source code, and a reserved look at private projects.</p>
+  </div>
+
+  <!-- Featured -->
+  <div class="sub-head">
+    <p class="kicker-sub">Featured</p>
+    <h3>Engineering &amp; research</h3>
+  </div>
+  <div class="grid grid-2">
+    {% for p in s.projects %}
+    <div class="card">
+      <h3>{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }} ↗</a>{% else %}{{ p.title }}{% endif %}</h3>
+      <p class="subtitle">{{ p.subtitle }}</p>
+      <p>{{ p.description }}</p>
+      <p class="impact">{{ p.impact }}</p>
+      <div class="chips">{% for t in p.technologies %}<span class="chip">{{ t }}</span>{% endfor %}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Open source -->
+  <div class="sub-head">
+    <p class="kicker-sub">Open source</p>
+    <h3>Public repositories</h3>
+    <p class="sub-note">Code I've released — each description comes straight from the repo's own README.</p>
+  </div>
+  <div class="grid grid-2">
+    {% for p in s.open_projects %}
+    <div class="card">
+      <h3><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }} ↗</a></h3>
+      <p class="subtitle">{{ p.subtitle }}</p>
+      <p>{{ p.description }}</p>
+      <div class="chips">{% for t in p.technologies %}<span class="chip">{{ t }}</span>{% endfor %}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Private -->
+  <div class="sub-head">
+    <p class="kicker-sub">Private work</p>
+    <h3>Selected private projects</h3>
+    <p class="sub-note">Closed-source by choice and kept at a high level on purpose — details available on request.</p>
+  </div>
+  <div class="grid grid-2">
+    {% for p in s.private_projects %}
+    <div class="card card-private">
+      <span class="tag-private">Private</span>
+      <h3>{{ p.title }}</h3>
+      <p class="subtitle">{{ p.subtitle }}</p>
+      <p>{{ p.description }}</p>
+      <p class="impact">{{ p.impact }}</p>
+      <div class="chips">{% for t in p.technologies %}<span class="chip">{{ t }}</span>{% endfor %}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <p style="margin-top: 26px;"><a href="{{ s.socials.github }}" target="_blank" rel="noopener">More on GitHub →</a></p>
+</div>
