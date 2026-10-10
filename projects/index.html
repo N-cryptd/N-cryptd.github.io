@@ -15,12 +15,12 @@ description: The full project index — featured engineering and research work, 
   <!-- Featured -->
   <div class="sub-head">
     <p class="kicker-sub">Featured</p>
-    <h3>Engineering &amp; research</h3>
+    <h2>Engineering &amp; research</h2>
   </div>
   <div class="grid grid-2">
     {% for p in s.projects %}
     <div class="card">
-      <h3>{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }} ↗</a>{% else %}{{ p.title }}{% endif %}</h3>
+      <h3>{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }} <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>{% else %}{{ p.title }}{% endif %}</h3>
       <p class="subtitle">{{ p.subtitle }}</p>
       <p>{{ p.description }}</p>
       <p class="impact">{{ p.impact }}</p>
@@ -32,13 +32,13 @@ description: The full project index — featured engineering and research work, 
   <!-- Open source -->
   <div class="sub-head">
     <p class="kicker-sub">Open source</p>
-    <h3>Public repositories</h3>
+    <h2>Public repositories</h2>
     <p class="sub-note">Code I've released — each description comes straight from the repo's own README.</p>
   </div>
   <div class="grid grid-2">
     {% for p in s.open_projects %}
     <div class="card">
-      <h3><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }} ↗</a></h3>
+      <h3><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }} <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></h3>
       <p class="subtitle">{{ p.subtitle }}</p>
       <p>{{ p.description }}</p>
       <div class="chips">{% for t in p.technologies %}<span class="chip">{{ t }}</span>{% endfor %}</div>
@@ -49,7 +49,7 @@ description: The full project index — featured engineering and research work, 
   <!-- Private -->
   <div class="sub-head">
     <p class="kicker-sub">Private work</p>
-    <h3>Selected private projects</h3>
+    <h2>Selected private projects</h2>
     <p class="sub-note">Closed-source by choice and kept at a high level on purpose — details available on request.</p>
   </div>
   <div class="grid grid-2">
@@ -65,5 +65,5 @@ description: The full project index — featured engineering and research work, 
     {% endfor %}
   </div>
 
-  <p style="margin-top: 26px;"><a href="{{ s.socials.github }}" target="_blank" rel="noopener">More on GitHub →</a></p>
+  <p style="margin-top: 26px;"><a href="{{ s.socials.github }}" target="_blank" rel="noopener">More on GitHub <span aria-hidden="true">→</span><span class="sr-only">(opens in a new tab)</span></a></p>
 </div>

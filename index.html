@@ -32,8 +32,8 @@ person_schema: true
       <a class="btn btn-ghost" href="{{ s.hero.cv | relative_url }}">Download CV</a>
     </div>
     <div class="hero-meta">
-      <span>📍 {{ s.hero.location }}</span>
-      <span>✈️ {{ s.hero.tagline }}</span>
+      <span><span aria-hidden="true">📍</span> {{ s.hero.location }}</span>
+      <span><span aria-hidden="true">✈️</span> {{ s.hero.tagline }}</span>
       <a href="{{ s.socials.linkedin }}">LinkedIn</a>
       <a href="{{ s.socials.github }}">GitHub</a>
       <a href="{{ s.socials.medium }}">Medium</a>
@@ -72,7 +72,7 @@ person_schema: true
     <div class="grid grid-2">
       {% for p in s.projects %}
       <div class="card">
-        <h3>{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }} ↗</a>{% else %}{{ p.title }}{% endif %}</h3>
+        <h3>{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }} <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>{% else %}{{ p.title }}{% endif %}</h3>
         <p class="subtitle">{{ p.subtitle }}</p>
         <p>{{ p.description }}</p>
         <p class="impact">{{ p.impact }}</p>
@@ -134,7 +134,7 @@ person_schema: true
         <h3>{{ ed.degree }}</h3>
         <p class="subtitle">{{ ed.field }}</p>
         <p>{{ ed.school }} · {{ ed.location }} · {{ ed.period }}</p>
-        <p class="impact">Thesis: {% if ed.thesis_url %}<a href="{{ ed.thesis_url }}" target="_blank" rel="noopener">{{ ed.thesis }} ↗</a>{% else %}{{ ed.thesis }}{% endif %}</p>
+        <p class="impact">Thesis: {% if ed.thesis_url %}<a href="{{ ed.thesis_url }}" target="_blank" rel="noopener">{{ ed.thesis }} <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>{% else %}{{ ed.thesis }}{% endif %}</p>
       </div>
       {% endfor %}
       {% for c in s.certifications %}
@@ -185,8 +185,8 @@ person_schema: true
     </div>
     <div class="contact-actions">
       <a class="btn btn-primary" href="{{ 'mailto:' | append: s.socials.email }}">Email me</a>
-      <a class="btn btn-ghost" href="{{ s.socials.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-ghost" href="{{ s.socials.github }}" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="{{ s.socials.linkedin }}" target="_blank" rel="noopener">LinkedIn<span class="sr-only">(opens in a new tab)</span></a>
+      <a class="btn btn-ghost" href="{{ s.socials.github }}" target="_blank" rel="noopener">GitHub<span class="sr-only">(opens in a new tab)</span></a>
     </div>
   </div>
 </section>
