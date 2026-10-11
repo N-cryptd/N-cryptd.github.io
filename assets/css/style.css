@@ -536,12 +536,11 @@ a:hover { text-decoration: underline; }
   html { scroll-behavior: auto; }
   .btn, .card { transition: none; }
   .btn:hover, .card:hover { transform: none; }
-  .aurora span, .flight .plane, .hero-badge .dot, .timeline li::before { animation: none !important; }
-  .flight { display: none; }
+  .aurora span, .hero-badge .dot, .timeline li::before { animation: none !important; }
 }
 
 /* ============================================================
-   Design flare — aurora hero, flight path, scroll reveals,
+   Design flare — aurora hero, scroll reveals,
    micro-interactions. Pure CSS, no JavaScript.
    ============================================================ */
 
@@ -593,7 +592,7 @@ html { scrollbar-color: var(--border) transparent; }
 .nav-links a:not(.nav-cta):hover::after { right: 0; }
 .nav-links a:not(.nav-cta)[aria-current="page"]::after { right: 0; }
 
-/* ---------- Hero: aurora blobs, gradient name, flight path ---------- */
+/* ---------- Hero: aurora blobs, gradient name ---------- */
 
 .hero {
   position: relative;
@@ -665,42 +664,6 @@ html { scrollbar-color: var(--border) transparent; }
 .btn-primary:hover {
   background-position: 90% 0;
   box-shadow: 0 10px 26px rgba(124, 58, 237, 0.5);
-}
-
-.flight {
-  position: absolute;
-  top: 48px;
-  right: 3%;
-  width: 560px;
-  height: 240px;
-  pointer-events: none;
-  color: color-mix(in srgb, var(--muted) 60%, transparent);
-}
-.flight .trail {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-.flight .plane {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 34px;
-  height: 34px;
-  offset-path: path("M0,190 C140,40 320,20 540,90");
-  offset-rotate: auto;
-  filter: drop-shadow(0 4px 10px color-mix(in srgb, var(--accent) 45%, transparent));
-  animation: fly 12s linear infinite;
-}
-@keyframes fly {
-  0%   { offset-distance: 0%;   opacity: 0; }
-  10%  { opacity: 1; }
-  88%  { opacity: 1; }
-  100% { offset-distance: 100%; opacity: 0; }
-}
-@media (max-width: 1000px) {
-  .flight { display: none; }
 }
 
 /* ---------- Cards: gradient top edge + glow on hover ---------- */
