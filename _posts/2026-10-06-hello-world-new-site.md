@@ -1,6 +1,7 @@
 ---
 title: "Hello world — a new site on GitHub Pages"
 description: "Why I rebuilt my personal website as a static Jekyll site on GitHub Pages, and how to keep it running."
+og_image: /assets/og/hello-world-new-site.png
 date: 2026-10-06
 tags: [Meta]
 ---

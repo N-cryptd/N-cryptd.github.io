@@ -1,6 +1,7 @@
 ---
 title: "Building AI Agents with LangChain and Local LLMs"
 description: "A practical guide to developing AI-powered automation systems using open-source language models."
+og_image: /assets/og/langchain-local-llms.png
 date: 2024-03-10
 tags: [AI/ML, Research]
 ---

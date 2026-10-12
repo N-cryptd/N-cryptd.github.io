@@ -1,6 +1,7 @@
 ---
 title: "Deep Reinforcement Learning for Autonomous Vertiport Operations"
 description: "Exploring how DRL algorithms like PPO can revolutionize urban air mobility by enabling autonomous drone coordination at vertiports."
+og_image: /assets/og/drl-vertiport-operations.png
 date: 2024-01-15
 tags: [Research, Aerospace]
 ---

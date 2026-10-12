@@ -32,3 +32,4 @@ exclude:
   - PLANNING_STATE.md
   - Gemfile
   - Gemfile.lock
+  - tools

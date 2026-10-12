@@ -1,6 +1,7 @@
 ---
 title: "U-space: The Future of Urban Air Traffic Management"
 description: "Understanding the European U-space framework and its implications for drone operations in urban environments."
+og_image: /assets/og/uspace-urban-traffic-management.png
 date: 2024-02-20
 tags: [Aerospace, Research]
 ---
