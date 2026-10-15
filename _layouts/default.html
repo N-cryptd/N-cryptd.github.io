@@ -41,6 +41,27 @@
   }
   </script>
   {% endif %}
+  {% if page.layout == 'post' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | jsonify }},
+    "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+    "dateModified": {{ page.date | date_to_xmlschema | jsonify }},
+    "author": {
+      "@type": "Person",
+      "name": {{ site.data.site.hero.name | jsonify }},
+      "url": {{ '/' | absolute_url | jsonify }}
+    },
+    "image": {% if page.og_image %}{{ page.og_image | absolute_url | jsonify }}{% else %}{{ '/assets/og-image.png' | absolute_url | jsonify }}{% endif %},
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ page.url | absolute_url | jsonify }}
+    }
+  }
+  </script>
+  {% endif %}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
