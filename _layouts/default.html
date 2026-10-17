@@ -41,6 +41,23 @@
   }
   </script>
   {% endif %}
+  {% if page.projects_schema %}
+  {% assign schema_projects = site.data.site.projects | concat: site.data.site.open_projects %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": {{ page.title | jsonify }},
+    "itemListElement": [{% for p in schema_projects %}{
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "name": {{ p.title | jsonify }}{% if p.url %},
+      "url": {{ p.url | absolute_url | jsonify }}{% endif %}
+    }{% unless forloop.last %},{% endunless %}{% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
   {% if page.layout == 'post' %}
   <script type="application/ld+json">
   {
