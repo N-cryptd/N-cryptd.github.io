@@ -765,3 +765,71 @@ html { scrollbar-color: var(--border) transparent; }
     .section-head, .card, .timeline li, .bar i { animation: none !important; }
   }
 }
+
+/* ============================================================
+   Print — ink-friendly paper output. Screen effects that
+   assume a backlit display are neutralized: scroll reveals
+   and background-clip text would print blank, and the dark
+   theme would waste ink / render inconsistently on paper.
+   ============================================================ */
+
+@media print {
+  :root {
+    /* Light-theme tokens (the closest screen equivalent of
+       paper) on pure white; wins over the dark theme by
+       source order regardless of OS preference. */
+    --bg: #ffffff;
+    --bg-soft: #eef0f6;
+    --card: #ffffff;
+    --border: #e2e6ee;
+    --text: #1b2334;
+    --muted: #5d6878;
+    --accent: #7c3aed;
+    --accent-2: #0e7490;
+    --accent-soft: rgba(124, 58, 237, 0.09);
+    --shadow: none;
+    color-scheme: light;
+  }
+
+  @page { margin: 16mm; }
+
+  html { font-size: 11pt; scroll-behavior: auto; }
+  body { font-size: 11pt; }
+
+  /* Screen-only chrome */
+  .site-header,
+  .skip-link,
+  .aurora { display: none !important; }
+
+  /* Nothing prints blank: reveals never start on paper, and
+     background-clip text is transparent over a background
+     that paper doesn't get */
+  .section-head, .card, .timeline li, .bar i { animation: none !important; }
+  .hero h1, .hero .title-line { background: none; color: var(--text); }
+
+  /* Button fills assume a screen; as links they still read
+     fine on paper once flattened to text */
+  .btn { box-shadow: none; }
+  .btn-primary { background: none; color: var(--accent); }
+
+  /* Skill bars are pure fills — nothing shows without printed
+     backgrounds, and the % next to each name carries the data */
+  .bar { display: none; }
+
+  /* Reading comfort: keep units whole and headings attached
+     to the content they introduce */
+  .card, .timeline li, .post-list li,
+  .post-content pre, .post-content blockquote { break-inside: avoid; }
+  .section-head, .sub-head { break-inside: avoid; break-after: avoid; }
+  :is(h1, h2, h3, h4) { break-after: avoid; }
+  .post-content pre { white-space: pre-wrap; overflow-wrap: break-word; }
+
+  /* Carry destinations onto paper — true external links and
+     mail only; internal hrefs are relative and stay clean */
+  a[href^="http"]:not([href*="n-cryptd.github.io"])::after,
+  a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: var(--muted);
+  }
+}
