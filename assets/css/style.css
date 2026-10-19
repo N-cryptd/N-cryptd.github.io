@@ -457,6 +457,39 @@ a:hover { text-decoration: underline; }
 
 .post { max-width: 760px; padding-top: 48px; padding-bottom: 48px; }
 
+/* Home / Blog / title — kicker-style labels, accent separators,
+   title truncates instead of wrapping on narrow screens */
+.crumbs {
+  display: flex;
+  align-items: baseline;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+.crumbs a {
+  color: var(--muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+.crumbs a:hover { color: var(--accent); }
+.crumbs a::after {
+  content: "/";
+  margin: 0 9px;
+  color: var(--accent);
+}
+/* Empty alt text keeps the decorative slash out of link names
+   where generated-content alt text is understood */
+@supports (content: "/" / "") {
+  .crumbs a::after { content: "/" / ""; }
+}
+.crumbs [aria-current="page"] {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .post-title { font-size: clamp(1.8rem, 4.5vw, 2.5rem); margin: 0 0 10px; letter-spacing: -0.02em; }
 
 .post-meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 26px; }
@@ -799,7 +832,8 @@ html { scrollbar-color: var(--border) transparent; }
   /* Screen-only chrome */
   .site-header,
   .skip-link,
-  .aurora { display: none !important; }
+  .aurora,
+  .crumbs { display: none !important; }
 
   /* Nothing prints blank: reveals never start on paper, and
      background-clip text is transparent over a background
