@@ -18,7 +18,38 @@ layout: default
   <div class="post-content">
     {{ content }}
   </div>
-  <nav class="post-nav" aria-label="Blog">
+  {% comment %} Chronological neighbours: site.posts is newest-first, so
+     the entry before the current one in the loop is the newer post. {% endcomment %}
+  {% assign current_index = nil %}
+  {% for p in site.posts %}
+    {% if p.url == page.url %}{% assign current_index = forloop.index0 %}{% endif %}
+  {% endfor %}
+  <nav class="post-nav" aria-label="Post navigation">
     <a href="{{ '/blog/' | relative_url }}">← All posts</a>
+    {% if current_index != nil %}
+      {% assign older_index = current_index | plus: 1 %}
+      {% assign older_post = site.posts[older_index] %}
+      {% assign newer_post = nil %}
+      {% if current_index > 0 %}
+        {% assign newer_index = current_index | minus: 1 %}
+        {% assign newer_post = site.posts[newer_index] %}
+      {% endif %}
+      {% if older_post or newer_post %}
+        <div class="post-nav-neighbours">
+          {% if older_post %}
+            <a class="post-nav-neighbour post-nav-older" href="{{ older_post.url | relative_url }}">
+              <span class="post-nav-label">← Older</span>
+              <span class="post-nav-title">{{ older_post.title }}</span>
+            </a>
+          {% endif %}
+          {% if newer_post %}
+            <a class="post-nav-neighbour post-nav-newer" href="{{ newer_post.url | relative_url }}">
+              <span class="post-nav-label">Newer →</span>
+              <span class="post-nav-title">{{ newer_post.title }}</span>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endif %}
   </nav>
 </article>

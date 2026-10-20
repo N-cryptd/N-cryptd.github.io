@@ -522,6 +522,44 @@ a:hover { text-decoration: underline; }
 
 .post-nav { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--border); }
 
+/* Chronological neighbours under the index link — quiet kicker
+   labels over the post title; one-sided on the oldest/newest
+   posts (the missing side simply isn't rendered), titles
+   truncate instead of wrapping on narrow screens */
+.post-nav-neighbours {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 16px;
+}
+.post-nav-neighbour {
+  display: block;
+  min-width: 0;
+  /* Two long titles still shrink to a fair split (flex-shrink),
+     but a lone side may use most of the row before truncating */
+  max-width: 62%;
+  text-decoration: none;
+}
+.post-nav-newer { margin-left: auto; text-align: right; }
+.post-nav-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.post-nav-title {
+  display: block;
+  margin-top: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 0.95rem;
+}
+.post-nav-neighbour:hover .post-nav-label { color: var(--accent); }
+.post-nav-neighbour:hover .post-nav-title { color: var(--accent-2); text-decoration: underline; }
+
 /* ---------- Contact ---------- */
 
 .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
