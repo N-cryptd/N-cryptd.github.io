@@ -9,9 +9,15 @@ layout: default
   </nav>
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
+    {% comment %} Reading time: arithmetic on the rendered post text
+       (200 wpm, rounded up, minimum 1) — derived, never invented. {% endcomment %}
+    {% assign post_words = content | strip_html | normalize_whitespace | split: ' ' | size %}
+    {% assign reading_time = post_words | divided_by: 200.0 | ceil %}
+    {% if reading_time < 1 %}{% assign reading_time = 1 %}{% endif %}
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time>
       {% if page.tags %} · {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}
+      · {{ reading_time }}&nbsp;min&nbsp;read
     </p>
   </header>
   {% if page.description %}<p class="post-excerpt">{{ page.description }}</p>{% endif %}
